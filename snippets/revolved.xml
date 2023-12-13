@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="revolved"
+           fetch="https://github.com/Revolved-UI"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/udc" />
+
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/SharmagRit"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/udc" />
+
+  <!-- Revolved-UI Additions -->
+
+  <!-- Android Build -->
+  <project path="build/make" name="android_build" groups="pdk" remote="revolved" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="revolved" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Android Frameworks -->
+  <project path="frameworks/av" name="android_frameworks_av" groups="pdk-cw-fs,pdk-fs" remote="revolved" />
+  <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="revolved" />
+  <project path="frameworks/native" name="android_frameworks_native" groups="pdk-cw-fs,pdk-fs" remote="revolved" />
+
+  <!-- Android Hardware -->
+  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="revolved" />
+
+  <!-- Android Packages -->
+  <project path="packages/apps/Backgrounds" name="android_packages_apps_Backgrounds" groups="pdk-fs" remote="revolved" />
+  <project path="packages/apps/crDroidSettings" name="android_packages_apps_Personalizations" groups="pdk-fs" remote="revolved" />
+  <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" groups="pdk-fs" remote="revolved" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" groups="pdk-fs" remote="revolved" />
+  <project path="packages/apps/SetupWizard" name="android_packages_apps_SetupWizard" groups="pdk-fs" remote="revolved" />
+
+  <!-- Android Vendor -->
+  <project path="vendor/addons" name="android_vendor_addons" remote="revolved" />
+  <project path="vendor/bcr" name="android_vendor_bcr" remote="revolved" />
+  <project path="vendor/gms" name="android_vendor_gms" remote="gitlab" />
+  <project path="vendor/lineage" name="android_vendor_lineage" remote="revolved" />
+  <project path="vendor/pixel-framework" name="android_vendor_pixel-framework" remote="revolved" />
+
+</manifest>
